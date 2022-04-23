@@ -4,7 +4,7 @@ public:
     int threeSumClosest(vector<int> &num, int target)
     {
         int n = num.size();
-        int d = INT_MAX;
+        int x = INT_MAX;
         int ans = target;
         sort(num.begin(), num.end());
 
@@ -18,9 +18,9 @@ public:
                     return target;
 
                 int diff = abs(sum - target);
-                if (diff < d)
+                if (diff < x)
                 {
-                    d = diff;
+                    x = diff;
                     ans = sum;
                 }
 
