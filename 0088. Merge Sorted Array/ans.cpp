@@ -4,13 +4,6 @@ public:
     // two pointer approach
     void merge(vector<int> &a, int m, vector<int> &b, int n)
     {
-        //         a.size()=m+n;
-        //         sort(a,a+m);
-        //         sort(b,b+n);
-
-        //         marge(a,a+m,b,b+n,a);
-        //         cout<<a<<endl;
-
         int i = m - 1;
         int j = n - 1;
         int k = (m + n - 1);
