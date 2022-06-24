@@ -1,5 +1,6 @@
 
-
+/*Runtime: 79 ms, faster than 29.37% of C++ online submissions for Construct Target Array With Multiple Sums.
+Memory Usage: 28.6 MB, less than 91.61% of C++ online submissions for Construct Target Array With Multiple Sums.*/
 class Solution
 {
 public:
