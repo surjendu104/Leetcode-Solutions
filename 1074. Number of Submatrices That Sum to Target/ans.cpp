@@ -3,7 +3,7 @@
 using namespace std;
 /*Runtime: 2833 ms, faster than 5.11% of C++ online submissions for Number of Submatrices That Sum to Target.
 Memory Usage: 9 MB, less than 94.64% of C++ online submissions for Number of Submatrices That Sum to Target.*/
-//O(N^4) solution
+// O(N^4) solution
 class Solution
 {
 public:
