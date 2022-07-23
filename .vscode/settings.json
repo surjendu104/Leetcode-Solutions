@@ -17,5 +17,6 @@
         "regex": "cpp",
         "valarray": "cpp",
         "bitset": "cpp"
-    }
+    },
+    "python.formatting.provider": "black"
 }
