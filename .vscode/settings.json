@@ -18,5 +18,5 @@
         "valarray": "cpp",
         "bitset": "cpp"
     },
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "autopep8"
 }
