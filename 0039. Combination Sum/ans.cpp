@@ -22,7 +22,7 @@ public:
         // include
         vector<int> a = temp;
         a.push_back(candidates[curr]);
-        get_soln(candidates, curr, target, curr_sum + candidates[curr], a, ans);
+        get_soln(candidates, curr, target, curr_sum + candidates[curr], a, ans);//included
         // exclude
         get_soln(candidates, curr + 1, target, curr_sum, temp, ans);
     }
