@@ -70,3 +70,28 @@ public:
         return dp[0][0];
     }
 };
+
+// Memoisation(TLE)
+class Solution
+{
+public:
+    int f(vector<int> &nums, vector<int> &multipliers, int start, int end, int idx, vector<vector<int>> &dp)
+    {
+        if (idx == multipliers.size())
+            return 0;
+
+        if (dp[idx][start] != -1)
+            return dp[idx][start];
+
+        int l = nums[start] * multipliers[idx] + f(nums, multipliers, start + 1, end, idx + 1, dp);
+        int r = nums[end] * multipliers[idx] + f(nums, multipliers, start, end - 1, idx + 1, dp);
+
+        return dp[idx][start] = max(l, r);
+    }
+    int maximumScore(vector<int> &nums, vector<int> &multipliers)
+    {
+        int m = multipliers.size();
+        vector<vector<int>> dp(m + 1, vector<int>(m + 1, -1));
+        return f(nums, multipliers, 0, nums.size() - 1, 0, dp);
+    }
+};
