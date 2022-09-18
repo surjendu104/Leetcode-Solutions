@@ -40,3 +40,35 @@ public:
         // return water;
     }
 };
+
+// for each i ans = min(left[i],right[i])-a[i]
+class Solution
+{
+public:
+    int trap(vector<int> &h)
+    {
+        int n = h.size();
+
+        vector<int> premax(n), sufmax(n);
+
+        int maxi = INT_MIN;
+        for (int i = 0; i < n; i++)
+        {
+            maxi = max(maxi, h[i]);
+            premax[i] = maxi;
+        }
+        maxi = INT_MIN;
+        for (int i = n - 1; i >= 0; i--)
+        {
+            maxi = max(maxi, h[i]);
+            sufmax[i] = maxi;
+        }
+
+        int ans = 0;
+        for (int i = 0; i < n; i++)
+        {
+            ans += (min(premax[i], sufmax[i]) - h[i]);
+        }
+        return ans;
+    }
+};
