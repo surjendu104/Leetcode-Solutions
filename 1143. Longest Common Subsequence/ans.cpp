@@ -2,6 +2,7 @@
 using namespace std;
 
 // Resursion
+// TLE
 class Solution
 {
 public:
@@ -25,6 +26,7 @@ public:
 };
 
 // Memoisation
+// ACCEPTED
 class Solution
 {
 public:
@@ -36,11 +38,11 @@ public:
             return dp[i][j];
         else if (a[i] == b[j])
         {
-            return 1 + lcs(a, b, dp, i + 1, j + 1);
+            return dp[i][j] = 1 + lcs(a, b, dp, i + 1, j + 1);
         }
         else
         {
-            return max(lcs(a, b, dp, i + 1, j), lcs(a, b, dp, i, j + 1));
+            return dp[i][j] = max(lcs(a, b, dp, i + 1, j), lcs(a, b, dp, i, j + 1));
         }
     }
     int longestCommonSubsequence(string text1, string text2)
