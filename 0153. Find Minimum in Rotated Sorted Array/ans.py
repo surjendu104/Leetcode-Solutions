@@ -1,3 +1,4 @@
+from typing import List
 class Solution:
     def findMin(self, nums: List[int]) -> int:
         ans = nums[0]
@@ -27,3 +28,19 @@ class Solution:
             else:
                 l = mid+1
         return nums[l]
+
+
+class Solution:
+    def findMin(self, nums: List[int]) -> int:
+        l,r = 0,len(nums)-1
+
+        while(l<=r):
+            mid = l+(r-l)//2
+            
+            element = nums[mid]
+            if element>nums[r]:
+                l = mid+1
+            elif mid==0 or nums[mid-1]>nums[mid]:
+                return nums[mid]
+            else:
+                r = mid-1
