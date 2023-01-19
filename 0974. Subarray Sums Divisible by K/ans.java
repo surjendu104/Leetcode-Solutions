@@ -17,3 +17,32 @@ class Solution {
         return ans;
     }
 }
+
+/*
+ * Approach : Generate all subarray and then check the condition
+ * Fate : It will give write answer on small testcase but give stackoverflow in
+ * bigger testcases
+ */
+class Solution {
+    int ans = 0;
+
+    public void helper(int[] nums, int k, int start, int end) {
+        if (end == nums.length)
+            return;
+        else if (start > end)
+            helper(nums, k, 0, end + 1);
+        else {
+            int sum = 0;
+            for (int i = start; i <= end; i++)
+                sum += nums[i];
+            if (sum % k == 0)
+                ans++;
+            helper(nums, k, start + 1, end);
+        }
+    }
+
+    public int subarraysDivByK(int[] nums, int k) {
+        helper(nums, k, 0, 0);
+        return ans;
+    }
+}
