@@ -9,10 +9,11 @@ class Solution{
 public:	
 	int search(int A[], int N){
 	    //code
-	    unordered_map<int,int> mpp;
-	    for(int i= 0;i<N;i++)mpp[A[i]]++;
-	    for(auto I:mpp)if(I.second==1)return I.first;
-	    return 0;
+	    set<int> st(A,A+N);
+	    int ans =accumulate(A,A+N,0);
+	    int sum = 0;
+	    for(auto it:st)sum+=it;
+	    return 2*sum-ans;
 	    
 	}
 };
