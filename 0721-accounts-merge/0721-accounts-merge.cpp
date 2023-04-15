@@ -1,6 +1,7 @@
 class DisjointSet
 {
-    vector<int> rank, parent, size;
+    vector<int> rank, parent;
+    vector<unsigned long long int> size;
 
 public:
     DisjointSet(int n)
@@ -70,7 +71,7 @@ public:
                 if(mapAccDetails.find(mail)==mapAccDetails.end()) {
                     mapAccDetails[mail] = i;
                 }else {
-                    ds.unionByRank(i,mapAccDetails[mail]);
+                    ds.unionBySize(i,mapAccDetails[mail]);
                 }
             }
         }
