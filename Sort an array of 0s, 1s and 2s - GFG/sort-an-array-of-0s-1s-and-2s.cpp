@@ -11,15 +11,22 @@ class Solution
     void sort012(int a[], int n)
     {
         // code here 
-        map<int, int> mpp;
-        for(int i = 0; i < n; i++)mpp[a[i]]++;
-        vector<int> v;
-        for(auto it : mpp) {
-            while(it.second--) {
-                v.push_back(it.first);
+        int l = 0, m = 0, r = n-1;
+        
+        while(m <= r) {
+            if(a[m]==0) {
+                swap(a[m], a[l]);
+                l++;
+                m++;
+            }
+            else if(a[m] == 1) {
+                m++;
+            }
+            else {
+                swap(a[m], a[r]);
+                r--;
             }
         }
-        for(int i = 0; i < n; i++)a[i] = v[i];
     }
     
 };
