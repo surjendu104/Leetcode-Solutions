@@ -14,27 +14,23 @@ class Solution {
         ListNode* slow = head;
         ListNode* fast = head;
         int maxVal = 0;
+         stack<int> st;
 
         while(fast && fast -> next)
         {
+            st.push(slow->val);
             slow = slow -> next;
             fast = fast -> next -> next;
         }
-
-        ListNode *nextNode, *prev = NULL;
-        while (slow) {
-            nextNode = slow->next;
-            slow->next = prev;
-            prev = slow;
-            slow = nextNode;
+         
+         
+        while (slow!=NULL) {
+            maxVal = max(maxVal, st.top()+slow->val);
+            st.pop();
+            slow  = slow->next;
         }
 
-        while(prev)
-        {
-            maxVal = max(maxVal, head -> val + prev -> val);
-            prev = prev -> next;
-            head = head -> next;
-        }
+        
 
         return maxVal;
     }
