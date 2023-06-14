@@ -11,20 +11,14 @@
  */
 class Solution {
 public:
-    vector<int> ans;
-    void inorder(TreeNode *root) {
-        if(root==NULL)return;
-        inorder(root->left);
-        ans.push_back(root->val);
-        inorder(root->right);
-    }
+    TreeNode *p;
+    int ans = INT_MAX;
     int getMinimumDifference(TreeNode* root) {
-        inorder(root);
-        
-        int res = INT_MAX;
-        for(int i = 0; i < ans.size()-1; ++i) {
-            res = min(res, abs(ans[i]-ans[i+1]));
-        }
-        return res;
+        if(root == NULL) return 0;
+        getMinimumDifference(root->left);
+        if(p != NULL)ans = min(ans, root->val - p->val);
+        p = root;
+        getMinimumDifference(root->right);
+        return ans;
     }
 };
