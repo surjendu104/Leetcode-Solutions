@@ -5,7 +5,7 @@ class Solution {
         HashMap<Integer, Integer> map = new HashMap<>();
         while(j < n) {
             map.put(cards[j], 1 + map.getOrDefault(cards[j], 0));
-            while(map.get(cards[j]) >= 2 && i < j) {
+            while(map.get(cards[j]) >= 2) {
                 map.put(cards[i], map.get(cards[i])-1);
                 len = Math.min(len, j-i+1);
                 i++;
