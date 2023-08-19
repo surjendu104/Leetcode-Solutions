@@ -56,7 +56,6 @@ class Solution{
                 dp[i][j] = mini;
             }
         }
-        
         return dp[1][n-1];
     }
 }
