@@ -54,11 +54,15 @@ class Solution{
     public static int doUnion(int a[], int n, int b[], int m) 
     {
         //Your code here
-        int[] map = new int[100001];
-        for(int i : a) map[i] = 1;
-        for(int j : b) map[j] = 1;
-        int cnt = 0;
-        for(int i : map) if(i == 1) cnt++;
-        return cnt;
+        // int[] map = new int[100001];
+        // for(int i : a) map[i] = 1;
+        // for(int j : b) map[j] = 1;
+        // int cnt = 0;
+        // for(int i : map) if(i == 1) cnt++;
+        // return cnt;
+        Set<Integer> st = new HashSet<>();
+        for(int i : a)st.add(i);
+        for(int i : b)st.add(i);
+        return st.size();
     }
 }
