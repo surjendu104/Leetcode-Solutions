@@ -12,13 +12,25 @@ class Solution {
     }
     public int minCost(int n, int[] cuts) {
         int x = cuts.length;
-        int[][] dp = new int[x+1][x+1];
-        for(int[] it : dp) Arrays.fill(it, -1);
+        int[][] dp = new int[x+2][x+2];
+        
         int[] c = new int[x+2];
         c[0] = 0;
         c[x+1] = n;
         for(int i = 0; i < x; i++) c[i+1] = cuts[i];
         Arrays.sort(c);
-        return f(1, x, c, dp);
+        
+        for(int i = x; i >= 1; --i) {
+            for(int j = 1; j <= x; ++j) {
+                if(i > j) continue;
+                int mini = Integer.MAX_VALUE;
+                for(int k = i; k <= j; ++k) {
+                    int cost = (c[j+1]-c[i-1]) + dp[i][k-1] + dp[k+1][j];
+                    mini = Math.min(mini, cost);
+                }
+                dp[i][j] = mini;
+            }
+        }
+        return dp[1][x];
     }
 }
