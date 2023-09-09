@@ -23,24 +23,25 @@ class GfG {
 
 class Solution {
     public int longestkSubstr(String s, int k) {
+        int n = s.length();
+        int i = 0, j = 0;
+        int len = 1;
         Map<Character, Integer> map = new HashMap<>();
-        int i = 0, j = 0, n = s.length();
-        int len = Integer.MIN_VALUE;
+        
         while(j < n) {
-            char c = s.charAt(j);
+            Character c = s.charAt(j);
             map.put(c, 1+map.getOrDefault(c, 0));
-            if(map.size() < k) j++;
-            else if(map.size() == k) {
-                len = Math.max(len, j-i+1);
-                j++;
-            }else if(map.size() > k) {
-                char cc = s.charAt(i);
+            
+            if(map.size() == k) len = Math.max(len, j-i+1);
+            // else if(map.size() < k) j++;
+            while(map.size() > k) {
+                Character cc = s.charAt(i);
                 map.put(cc, map.get(cc)-1);
+                if(map.get(cc) == 0) map.remove(cc);
                 i++;
-                j++;
-                if(map.get(cc) == 0)map.remove(cc);
             }
+            j++;
         }
-        return len!=Integer.MIN_VALUE?len:-1;
+        return len;
     }
 }
