@@ -16,12 +16,10 @@ class Solution {
             n--;
         }
         if(q == null) return head.next;
-        // System.out.println(q.val);
         while(q.next != null) {
             p = p.next;
             q = q.next;
         }
-        // System.out.println(p.val);
         p.next = p.next.next;
         return head;
     }
