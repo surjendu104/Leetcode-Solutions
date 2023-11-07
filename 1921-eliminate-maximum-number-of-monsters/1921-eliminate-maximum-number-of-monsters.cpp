@@ -1,3 +1,7 @@
+/*
+For this problem if the arrival time greater than the current minute then break.
+*/
+
 class Solution {
 public:
     int eliminateMaximum(vector<int>& dist, vector<int>& speed) {
