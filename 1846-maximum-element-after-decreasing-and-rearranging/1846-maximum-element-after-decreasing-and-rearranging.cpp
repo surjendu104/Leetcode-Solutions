@@ -10,7 +10,7 @@ public:
                 arr[i+1] = arr[i]+1;
             }
         }
-        int maxi = *max_element(begin(arr), end(arr));
-        return maxi;
+        // int maxi = *max_element(begin(arr), end(arr));
+        return arr[n-1];
     }
 };
