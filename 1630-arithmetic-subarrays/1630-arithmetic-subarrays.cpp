@@ -13,8 +13,6 @@ public:
                 continue;
             }
             vector<int> tmp(nums.begin()+a, nums.begin()+b+1);
-            // for(int i : tmp) cout << i << ' ';
-            // cout << '\n';
             sort(tmp.begin(), tmp.end());
             int diff = tmp[1] - tmp[0];
             bool f = true;
